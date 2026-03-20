@@ -8,10 +8,30 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id">
-      <head>
-        <script src="https://pl28950125.profitablecpmratenetwork.com/f7/29/bc/f729bc7cb1ca7783751f71c495f3204e.js"></script>
-      </head>
-      <body style={{ margin: 0 }}>{children}</body>
+      <body style={{ margin: 0 }}>
+        {children}
+        <div style={{
+          display: "flex",
+          justifyContent: "center",
+          padding: "16px 0 24px",
+          background: "#f8f7ff"
+        }}>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                atOptions = {
+                  'key' : 'fc8c3829fbbf9f25ec4a0145fdc38195',
+                  'format' : 'iframe',
+                  'height' : 250,
+                  'width' : 300,
+                  'params' : {}
+                };
+              `
+            }}
+          />
+          <script src="https://www.highperformanceformat.com/fc8c3829fbbf9f25ec4a0145fdc38195/invoke.js" />
+        </div>
+      </body>
     </html>
   );
 }
