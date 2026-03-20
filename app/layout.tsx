@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Caption Generator",
@@ -10,27 +11,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="id">
       <body style={{ margin: 0 }}>
         {children}
-        <div style={{
+        <div id="ad-container" style={{
           display: "flex",
           justifyContent: "center",
           padding: "16px 0 24px",
           background: "#f8f7ff"
         }}>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                atOptions = {
-                  'key' : 'fc8c3829fbbf9f25ec4a0145fdc38195',
-                  'format' : 'iframe',
-                  'height' : 250,
-                  'width' : 300,
-                  'params' : {}
-                };
-              `
-            }}
-          />
-          <script src="https://www.highperformanceformat.com/fc8c3829fbbf9f25ec4a0145fdc38195/invoke.js" />
+          <div style={{ width: 300, height: 250 }} />
         </div>
+        <Script id="ad-options" strategy="afterInteractive">
+          {`
+            atOptions = {
+              'key' : 'fc8c3829fbbf9f25ec4a0145fdc38195',
+              'format' : 'iframe',
+              'height' : 250,
+              'width' : 300,
+              'params' : {}
+            };
+          `}
+        </Script>
+        <Script
+          src="https://www.highperformanceformat.com/fc8c3829fbbf9f25ec4a0145fdc38195/invoke.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
