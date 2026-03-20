@@ -22,6 +22,7 @@ export default function Home() {
   const [unlocked, setUnlocked] = useState(false);
   const [passInput, setPassInput] = useState("");
   const [passError, setPassError] = useState(false);
+  const [showPass, setShowPass] = useState(false);
   const [topik, setTopik] = useState("");
   const [detail, setDetail] = useState("");
   const [platform, setPlatform] = useState("instagram");
@@ -81,12 +82,14 @@ export default function Home() {
             <p style={styles.lockSubtitle}>Masukkan password untuk akses</p>
             <input
               style={passError ? styles.inputError : styles.inputFull}
-              type="password"
+              type={showPass ? "text" : "password"}
               placeholder="Password..."
               value={passInput}
               onChange={(e) => { setPassInput(e.target.value); setPassError(false); }}
               onKeyDown={(e) => e.key === "Enter" && checkPassword()}
             />
+            
+            <button style={styles.togglePass} onClick={() => setShowPass(!showPass)}>{showPass ? "Sembunyikan password" : "Lihat password"}</button>
             {passError && <p style={styles.errorText}>Password salah. Coba lagi!</p>}
             <button style={styles.btn} onClick={checkPassword}>Masuk</button>
             <p style={styles.buyText}>
@@ -172,6 +175,7 @@ const styles: Record<string, React.CSSProperties> = {
   errorText: { margin: 0, fontSize: 13, color: "#dc2626" },
   buyText: { margin: 0, fontSize: 13, color: "#6b7280" },
   buyLink: { color: "#6c63ff", fontWeight: 600, textDecoration: "none" },
+  togglePass: { background: "none", border: "none", color: "#6c63ff", fontSize: 13, cursor: "pointer", padding: 0 },
   inputFull: { width: "100%", padding: "10px 14px", borderRadius: 10, border: "1.5px solid #e5e7eb", fontSize: 14, color: "#1a1a2e", background: "#fff" },
   inputError: { width: "100%", padding: "10px 14px", borderRadius: 10, border: "1.5px solid #dc2626", fontSize: 14, color: "#1a1a2e", background: "#fff" },
   container: { maxWidth: 680, margin: "0 auto", display: "flex", flexDirection: "column", gap: 20 },
