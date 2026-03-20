@@ -94,7 +94,7 @@ export default function Home() {
             <button style={styles.btn} onClick={checkPassword}>Masuk</button>
             <p style={styles.buyText}>
               Belum punya akses?{" "}
-              <a href="https://lynk.id/username" style={styles.buyLink}>Beli di sini</a>
+              <a href="https://lynk.id/kylezepetine" style={styles.buyLink}>Beli di sini</a>
             </p>
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function Home() {
     <main style={styles.main}>
       <div style={styles.container}>
         <div style={styles.header}>
-          <div style={styles.badge}>AI Writing Tool</div>
+          <div style={styles.badge}>Writing Tool</div>
           <h1 style={styles.title}>Caption Generator</h1>
           <p style={styles.subtitle}>Buat caption media sosial yang engaging dalam hitungan detik</p>
         </div>
